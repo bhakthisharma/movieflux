@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.tools {
+  background-color: #282c34;
+  width: 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.tools :hover {
+  cursor: pointer;
+}
+.tools img :hover {
+  color: blue;
+}
+.landing-page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: space-between;
+  padding-left: 60px;
+  background-image: url(images/bg-image.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.container {
+  display: flex;
+  background-color: white;
+}
+.movie-ratings {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+.movie-details {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  font-size: 18px;
+  color: white;
+}
+
+.movieratings-year {
+  display: flex;
+  gap: 20px;
+}
+.movie-name {
+  font-size: 45px;
+}
+.movie-description {
+  width: 60%;
+  text-align: justify;
+}
+.movie-section{
+  display: flex;
+  flex-direction: column;
+}
+
