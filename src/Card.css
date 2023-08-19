@@ -16,3 +16,11 @@
 .card-content {
   font-size: 1rem;
 }
+
+
+.currentlyplayng-card{
+  width: 800px;
+  height: 400px;
+  gap: 20px;
+
+}

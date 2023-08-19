@@ -1,28 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Card.css"; // Create this CSS file for styling
 import SeethaRamam from "./images/sitaramam.avif";
 import ratingStar from "./images/rating.svg";
+import axios from "axios";
 
-const Card = (props) => {
+const Card = ({movie}) => {
+  const [poster, setPoster] = useState(null);
+  useEffect(() => {
+    const fetchPoster = async () => {
+      try {
+        const response = await axios.get(
+          `https://image.tmdb.org/t/p/original${movie.poster_path}`
+        );
+        setPoster(response.config.url);
+      } catch (error) {
+        console.error("Error fetching poster image:", error);
+      }
+    };
+
+    fetchPoster();
+  }, []);
   return (
     <>
-      <div className="card">
-        <h2 className="card-title">{props.title}</h2>
-        <div className="card-content">{props.children}</div>
-      </div>
 
-      <div className="movie-section">
-        <div className="playing-movies">
-          <p>Now playing movies</p>
-          <a hrexf="">Explore All</a>
+     {poster&&
+     <div className="currentlyplaying-card">
+     <img src={poster} alt="SeethaRama" height={350} width={250}  />
 
-          <Card>
-            <img src={SeethaRamam} alt="SeethaRama" height={120} width={80} />
-          </Card>
-
-          <div className="currentlyplayng-cards">
-            <div className="currentlyplayng-card">
-              <p>Elemental</p>
+              <p>{movie.title}</p>
               <div className="currentlyplayingmovie-ratings">
                 <img
                   src={ratingStar}
@@ -55,10 +60,9 @@ const Card = (props) => {
                   height={23}
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </div>}
+
+      
     </>
   );
 };
