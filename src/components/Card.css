@@ -1,11 +1,16 @@
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 16px;
   margin: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: fit-content;
+  width: 800px;
+  height: 400px;
+  gap: 20px;
 
+}
+.card:hover{
+  transform: scale(1.05);
+  transition: 200ms all ease-in-out;
 }
 
 .card-title {
@@ -18,9 +23,4 @@
 }
 
 
-.currentlyplayng-card{
-  width: 800px;
-  height: 400px;
-  gap: 20px;
 
-}

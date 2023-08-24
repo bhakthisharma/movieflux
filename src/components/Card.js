@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css"; // Create this CSS file for styling
-import SeethaRamam from "./images/sitaramam.avif";
-import ratingStar from "./images/rating.svg";
+import SeethaRamam from "../images/sitaramam.avif";
+import ratingStar from "../images/rating.svg";
 import axios from "axios";
 
 const Card = ({movie}) => {
@@ -24,7 +24,7 @@ const Card = ({movie}) => {
     <>
 
      {poster&&
-     <div className="currentlyplaying-card">
+     <div className="card">
      <img src={poster} alt="SeethaRama" height={350} width={250}  />
 
               <p>{movie.title}</p>
