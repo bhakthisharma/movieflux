@@ -1,0 +1,16 @@
+.search-bar {
+  background-color: rgb(32, 33, 36);
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  border: none;
+  outline: none;
+  padding: 30px;
+  right: 0;
+  color: white;
+  left: 91px;
+}
+
+.search-bar::placeholder {
+  font-size: 16px;
+}

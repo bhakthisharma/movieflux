@@ -4,7 +4,7 @@ import Card from './Card';
 
 export const CarouselLayout = ({movies}) => {
   return (
-    <Carousel itemsToShow={4} itemPosition='consts.END'>
+    <Carousel itemsToShow={4} itemPosition='consts.CENTER'>
      {movies.map((movie) => (
       <Card
      movie={movie}

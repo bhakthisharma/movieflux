@@ -1,0 +1,32 @@
+.main-section-filteredmovies {
+  padding: 100px 20px;
+}
+.filtered-movies-title {
+  font-size: 30px;
+  color: white;
+  margin-left: 34px;
+}
+.filtered-movies-items {
+  color: white;
+  margin-left: 34px;
+}
+
+.grid {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  background-color: #141414;
+}
+.movie-explorer{
+  cursor: pointer;
+  font-size: 15px;
+  color: dodgerblue;
+  text-underline-offset: 4px;
+
+}
+.movie-explorer:hover{
+  text-decoration: underline;
+  transition: all 200ms ease-in;
+}
