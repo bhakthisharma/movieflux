@@ -4,10 +4,11 @@ import ratingStar from "../images/rating.svg";
 import cardHeart from "../images/heart-1.svg";
 import starFilled from "../images/star-filled.svg";
 import starUnfilled from "../images/star-outlined.svg";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Card = ({ movie }) => {
+  const navigate = useNavigate();
   function convertToStarsRating(voteAverage) {
     const maxRating = 10; // TMDB's maximum rating
     const numberOfStars = (voteAverage / maxRating) * 5;
@@ -28,11 +29,11 @@ const Card = ({ movie }) => {
     };
 
     fetchPoster();
-  }, []);
+  }, [movie]);
   return (
     <>
       {poster && (
-        <div className="card">
+        <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
           <img
             className="card-favourite"
             src={cardHeart}

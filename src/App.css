@@ -3,41 +3,33 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar-track
-{
-
-
-    background-color:#141414;
+::-webkit-scrollbar-track {
+  background-color: #141414;
 }
 
-::-webkit-scrollbar
-{
-    width: 13px;
-    background-color: #F5F5F5;
+::-webkit-scrollbar {
+  width: 13px;
+  background-color: #f5f5f5;
 }
 
-::-webkit-scrollbar-thumb
-{
-
-
-    background-color: dodgerblue;
+::-webkit-scrollbar-thumb {
+  background-color: dodgerblue;
 }
 
 .landing-page {
   width: 400px;
-  height: 300px; 
+  height: 300px;
   background-size: cover;
   background-position: right;
   position: relative;
 }
 
 .landing-page::before {
-  
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 70%; 
+  width: 70%;
   height: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 6.2), transparent);
 }
@@ -46,7 +38,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .tools {
-
   background-color: black;
   /* background-color: #282c34; */
   width: 100px;
@@ -57,7 +48,8 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  border-right:0.5px solid #433838;
+  border-right: 0.5px solid #433838;
+  z-index: 1000;
 }
 .tools :hover {
   cursor: pointer;
@@ -76,7 +68,7 @@ body {
   background-position: center;
   background-size: cover;
 }
-.main-section {
+.main-section, .movie-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -86,7 +78,7 @@ body {
   background-color: white;
   width: 100%;
 }
-.movie-year{
+.movie-year {
   display: flex;
   align-items: center;
   margin: 0;
@@ -97,7 +89,6 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 6px;
-
 }
 .movie-details {
   justify-content: flex-start;
@@ -105,7 +96,7 @@ body {
   flex-direction: column;
   row-gap: 25px;
   color: white;
-  width:55%;
+  width: 55%;
 }
 
 .movieratings-year {
@@ -116,7 +107,6 @@ body {
   align-items: center;
   z-index: 1;
   width: fit-content;
-  
 }
 .movie-name {
   font-size: 40px;
@@ -129,7 +119,7 @@ body {
   font-size: 15px;
   position: relative;
   z-index: 1;
-  line-height:1.3;
+  line-height: 1.3;
 }
 .movie-section {
   display: flex;

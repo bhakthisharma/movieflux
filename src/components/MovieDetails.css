@@ -1,0 +1,20 @@
+.moviedetails {
+  padding-top: 40px;
+
+}
+
+.moviedetails-title {
+  display: flex;
+  color: white;
+  gap: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  text-underline-offset: 4px;
+  align-items: center;
+  justify-content: center;
+  
+}
+.moviedetails-title:hover {
+  text-decoration: underline;
+  transition: all 200ms ease-in;
+}

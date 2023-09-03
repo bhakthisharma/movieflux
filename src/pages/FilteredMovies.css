@@ -1,14 +1,20 @@
 .main-section-filteredmovies {
   padding: 100px 20px;
 }
+
+.filtered-movies-title-items {
+  gap: 9px;
+  display: flex;
+  flex-direction: column;
+}
 .filtered-movies-title {
-  font-size: 30px;
+  font-size: 22px;
   color: white;
   margin-left: 34px;
 }
 .filtered-movies-items {
-  color: white;
   margin-left: 34px;
+  color: rgb(176, 168, 168);
 }
 
 .grid {
@@ -19,14 +25,13 @@
 .container {
   background-color: #141414;
 }
-.movie-explorer{
+.movie-explorer {
   cursor: pointer;
   font-size: 15px;
   color: dodgerblue;
   text-underline-offset: 4px;
-
 }
-.movie-explorer:hover{
+.movie-explorer:hover {
   text-decoration: underline;
   transition: all 200ms ease-in;
 }

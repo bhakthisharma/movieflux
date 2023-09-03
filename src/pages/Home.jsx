@@ -1,27 +1,18 @@
-import logo from "../logo.svg";
 import "../App.css";
 import { CarouselLayout } from "../components/Carousel";
-import starFilled from "../images/star-filled.svg";
-import starUnfilled from "../images/star-outlined.svg";
-import TextTruncate from "react-text-truncate"; // recommend
+import Landing from "../components/Landing";
 import Tools from "../components/Tools";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({setSearchMode, searchMode}) => {
+const Home = ({ setSearchMode, searchMode }) => {
   const navigate = useNavigate();
   const TMDB_API_KEY = "3bf86b4334ec0be302abbf616d7b5e18";
   const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 
   function getRandomInteger(maxValue) {
     return Math.floor(Math.random() * maxValue);
-  }
-
-  function convertToStarsRating(voteAverage) {
-    const maxRating = 10; // TMDB's maximum rating
-    const numberOfStars = (voteAverage / maxRating) * 5;
-    return Math.round(numberOfStars);
   }
 
   async function fetchNowPlayingMovies() {
@@ -93,14 +84,22 @@ const Home = ({setSearchMode, searchMode}) => {
   const [upcomingMovies, setUpcomingMovies] = useState(null);
   const [topRatedMovies, setTopRatedMovies] = useState(null);
   const [landingMovie, setLandingMovie] = useState(null);
-  const [landingMovieBackdrop, setLandingMovieBackdrop] = useState(null);
 
   useEffect(() => {
     if (popularMovies) {
       const landingMovie =
         popularMovies[getRandomInteger(popularMovies.length)];
 
-      setLandingMovie(landingMovie);
+        const apiUrl = `https://api.themoviedb.org/3/movie/${landingMovie.id}?api_key=${TMDB_API_KEY}&language=en-US`;
+
+        // Make an Axios GET request to fetch movie details
+        axios.get(apiUrl)
+          .then((response) => {
+            setLandingMovie(response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching movie data:', error);
+          });
     }
   }, [popularMovies]);
 
@@ -122,60 +121,13 @@ const Home = ({setSearchMode, searchMode}) => {
         <div className="container">
           <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="main-section">
-            <div
-              style={{
-                backgroundImage: `url(https://image.tmdb.org/t/p/original/${landingMovie.backdrop_path})`,
-              }}
-              className="landing-page"
-            >
-              <div className="movie-details">
-                <h1 className="movie-name">{landingMovie.title}</h1>
-                <div className="movieratings-year">
-                  <div className="movie-ratings">
-                    {[
-                      ...Array(convertToStarsRating(landingMovie.vote_average)),
-                    ].map((e, i) => (
-                      <img
-                        src={starFilled}
-                        alt="star-filled"
-                        height={22}
-                        width={22}
-                      ></img>
-                    ))}
-                    {[
-                      ...Array(
-                        5 - convertToStarsRating(landingMovie.vote_average)
-                      ),
-                    ].map((e, i) => (
-                      <img
-                        src={starUnfilled}
-                        alt="star-unfilled"
-                        height={22}
-                        width={22}
-                      ></img>
-                    ))}
-                  </div>
-                  <p className="movie-year">
-                    {" "}
-                    {landingMovie.release_date.slice(0, 4)}
-                  </p>
-                </div>
-                <p className="movie-description">
-                  <TextTruncate
-                    className="movie-description1"
-                    line={3}
-                    element="span"
-                    truncateText="…"
-                    text={landingMovie.overview}
-                  />
-                </p>
-              </div>
-            </div>
+            <Landing movie={landingMovie}></Landing>
             <div className="movie-section">
               <div className="playing-movies">
                 <div className="status-explore">
                   <p className="movie-status">Now playing movies</p>
-                  <p className="movie-explorer"
+                  <p
+                    className="movie-explorer"
                     onClick={() =>
                       navigate("/nowplaying", {
                         state: {
@@ -194,14 +146,19 @@ const Home = ({setSearchMode, searchMode}) => {
               <div className="playing-movies">
                 <div className="status-explore">
                   <p className="movie-status">Popular movies</p>
-                  <p className="movie-explorer"  onClick={() =>
+                  <p
+                    className="movie-explorer"
+                    onClick={() =>
                       navigate("/popular", {
                         state: {
                           endpoint: "/popular",
                           title: "Popular Movies",
                         },
                       })
-                    }>Explore all</p>
+                    }
+                  >
+                    Explore all
+                  </p>
                 </div>
 
                 <CarouselLayout movies={popularMovies}></CarouselLayout>
@@ -209,15 +166,19 @@ const Home = ({setSearchMode, searchMode}) => {
               <div className="playing-movies">
                 <div className="status-explore">
                   <p className="movie-status">Upcoming movies</p>
-                  <p className="movie-explorer"
-                   onClick={() =>
+                  <p
+                    className="movie-explorer"
+                    onClick={() =>
                       navigate("/upcoming", {
                         state: {
                           endpoint: "/upcoming",
                           title: "Upcoming Movies",
                         },
                       })
-                    }>Explore all</p>
+                    }
+                  >
+                    Explore all
+                  </p>
                 </div>
 
                 <CarouselLayout movies={upcomingMovies}></CarouselLayout>
@@ -225,15 +186,19 @@ const Home = ({setSearchMode, searchMode}) => {
               <div className="playing-movies">
                 <div className="status-explore">
                   <p className="movie-status">Top rated movies</p>
-                  <p  className="movie-explorer"
-                   onClick={() =>
+                  <p
+                    className="movie-explorer"
+                    onClick={() =>
                       navigate("/toprated", {
                         state: {
                           endpoint: "/top_rated",
                           title: "Top Rated Movies",
                         },
                       })
-                    }>Explore all</p>
+                    }
+                  >
+                    Explore all
+                  </p>
                 </div>
 
                 <CarouselLayout movies={topRatedMovies}></CarouselLayout>

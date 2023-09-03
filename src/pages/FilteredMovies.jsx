@@ -33,7 +33,7 @@ const FilteredMovies = ({searchMode, setSearchMode}) => {
     };
 
     fetchMovies();
-  }, []);
+  }, [endpoint]);
 
   return (
     <>
@@ -41,9 +41,9 @@ const FilteredMovies = ({searchMode, setSearchMode}) => {
         <div className="container">
           <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="main-section-filteredmovies">
-            <div>
+            <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">{location?.state?.title}</p>
-              <p className="filtered-movies-items">160 items</p>
+              <p className="filtered-movies-items">20 items</p>
             </div>
 
             <div className="grid">
