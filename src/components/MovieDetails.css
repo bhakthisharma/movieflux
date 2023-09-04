@@ -9,12 +9,53 @@
   gap: 20px;
   cursor: pointer;
   font-size: 13px;
-  text-underline-offset: 4px;
   align-items: center;
   justify-content: center;
   
 }
-.moviedetails-title:hover {
+.moviedetails-tab{
+  text-underline-offset:10px;
+
+}
+.moviedetails-tab:hover {
   text-decoration: underline;
   transition: all 200ms ease-in;
+}
+.moviedetails{
+  color: white;
+}
+.moviedetails-description{
+  display: flex;
+  padding: 40px 12px;
+
+  
+}
+.moviedetails-description-image{
+  padding: 7px 60px;
+}
+.moviedetails-description-moviedetails{
+  display: flex;
+  margin-top: 30px;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+.moviedetails-summary{
+  margin-top: 20px;
+}
+
+.moviedetails-description-details{
+  padding-top: 20px;
+}
+.moviedescription-title{
+  font-size: 26px;
+}
+.moviedetails-description-moviedetails-attributes, .moviedetails-description-moviedetails-values{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+}
+.moviedetails-description-moviedetails-values{
+  padding-left: 60px;
 }

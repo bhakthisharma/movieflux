@@ -5,6 +5,7 @@ import FilteredMovies from "./pages/FilteredMovies";
 import Search from "./components/Search";
 import { useState } from "react";
 import Movie from "./pages/Movie"
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   const [searchMode, setSearchMode] = useState(false);
@@ -33,6 +34,15 @@ function App() {
               path="/movie/:id"
               element={
                 <Movie setSearchMode={setSearchMode} searchMode={searchMode} />
+              }
+            ></Route>
+             <Route
+              path="/search/:query"
+              element={
+                <SearchResults
+                  setSearchMode={setSearchMode}
+                  searchMode={searchMode}
+                />
               }
             ></Route>
           </Routes>
