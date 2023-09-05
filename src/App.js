@@ -6,14 +6,16 @@ import Search from "./components/Search";
 import { useState } from "react";
 import Movie from "./pages/Movie"
 import SearchResults from "./pages/SearchResults";
+import Favourites from "./pages/Favourites";
 
 function App() {
   const [searchMode, setSearchMode] = useState(false);
   return (
+    <>
+        <Router>
+
     <div className="App">
       {searchMode && <Search></Search>}
-      <>
-        <Router>
           <Routes>
             <Route
               path="/"
@@ -28,6 +30,12 @@ function App() {
                   setSearchMode={setSearchMode}
                   searchMode={searchMode}
                 />
+              }
+            ></Route>
+             <Route
+              path="/favourites"
+              element={
+                <Favourites setSearchMode={setSearchMode} searchMode={searchMode} />
               }
             ></Route>
             <Route
@@ -46,9 +54,10 @@ function App() {
               }
             ></Route>
           </Routes>
-        </Router>
-      </>
     </div>
+    </Router>
+    </>
+
   );
 }
 

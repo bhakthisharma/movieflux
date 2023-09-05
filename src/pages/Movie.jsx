@@ -5,7 +5,7 @@ import Landing from "../components/Landing";
 import Tools from "../components/Tools";
 import MovieDetails from "../components/MovieDetails";
 
-const Movie = () => {
+const Movie = ({searchMode, setSearchMode}) => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
   const apiKey = "3bf86b4334ec0be302abbf616d7b5e18";
@@ -35,7 +35,7 @@ const Movie = () => {
     <>
       {movie && cast && (
         <div className="container">
-          <Tools></Tools>
+          <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="movie-container">
             <Landing movie={movie}></Landing>
             <MovieDetails movieDetails={movie}></MovieDetails>

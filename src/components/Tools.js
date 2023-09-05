@@ -27,7 +27,7 @@ const Tools = ({ setSearchMode, searchMode }) => {
         <img src={home} alt="home" width={26} height={26} />
       </a>
 
-      <a
+      <a href="/favourites"
         data-tooltip-id="my-tooltip"
         data-tooltip-content="Favourites"
         data-tooltip-place="bottom-start"

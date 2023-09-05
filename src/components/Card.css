@@ -38,13 +38,11 @@
   position: absolute;
   top: 23px;
   right: 25px;
-  opacity: 0; /* Start with opacity 0 (hidden) */
-  transition: opacity 0.3s; /* Add a transition for smooth animation */
+  z-index:4000;
+  
 }
 
-.card:hover .card-favourite {
-  opacity: 1; /* Show the favorite icon on hover */
-}
+
 .movie-ratings-small {
   margin-top: 6px;
 }

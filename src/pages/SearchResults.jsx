@@ -38,7 +38,7 @@ const SearchResults = ({ searchMode, setSearchMode }) => {
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">Search Results</p>
-              <p className="filtered-movies-items">20 items</p>
+              <p className="filtered-movies-items">{movies.length} items</p>
             </div>
 
             <div className="grid">

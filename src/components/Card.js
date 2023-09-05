@@ -29,12 +29,17 @@ const Card = ({ movie }) => {
     };
 
     fetchPoster();
-  }, [movie]);
+  }, [movie.poster_path]);
   return (
     <>
       {poster && (
         <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
           <img
+          onClick={()=>{
+            const movies=JSON.parse(localStorage.getItem("favourites"))||[]
+            movies.push(movie)
+            localStorage.setItem("favourites",JSON.stringify(movies))
+          }}
             className="card-favourite"
             src={cardHeart}
             alt="card-favourite"

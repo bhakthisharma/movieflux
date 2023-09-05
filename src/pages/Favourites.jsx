@@ -6,34 +6,18 @@ import { useEffect, useState } from "react";
 import Grid from "../components/Grid";
 import axios from "axios";
 
-
-const FilteredMovies = ({searchMode, setSearchMode}) => {
-  const location = useLocation();
-  const endpoint  = location?.state?.endpoint;
-
+const Favourites = ({ searchMode, setSearchMode }) => {
+  const { query } = useParams();
   const TMDB_API_KEY = "3bf86b4334ec0be302abbf616d7b5e18";
-  const TMDB_BASE_URL = "https://api.themoviedb.org/3/movie";
+
 
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(`${TMDB_BASE_URL}/${endpoint}`, {
-          params: {
-            api_key: TMDB_API_KEY,
-            language: "en-US",
-            page: 1, // Adjust as needed
-          },
-        });
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error("Error fetching poster image:", error);
-      }
-    };
-
-    fetchMovies();
-  }, [endpoint]);
+    const movies=JSON.parse(localStorage.getItem("favourites"))||[]
+    console.log(movies)
+    setMovies(movies)
+  }, [query]);
 
   return (
     <>
@@ -42,7 +26,7 @@ const FilteredMovies = ({searchMode, setSearchMode}) => {
           <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
-              <p className="filtered-movies-title">{location?.state?.title}</p>
+              <p className="filtered-movies-title">Favourites</p>
               <p className="filtered-movies-items">{movies.length} items</p>
             </div>
 
@@ -56,4 +40,4 @@ const FilteredMovies = ({searchMode, setSearchMode}) => {
   );
 };
 
-export default FilteredMovies;
+export default Favourites;
