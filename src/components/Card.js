@@ -34,7 +34,15 @@ const Card = ({ movie }) => {
     <>
       {poster && (
         <div className="card" onClick={() => navigate(`/movie/${movie.id}`)}>
+         
           <img
+            className="card-poster"
+            src={poster}
+            alt="Card-Image"
+            height={330}
+            width={230}
+          />
+ <img
           onClick={()=>{
             const movies=JSON.parse(localStorage.getItem("favourites"))||[]
             movies.push(movie)
@@ -46,14 +54,6 @@ const Card = ({ movie }) => {
             height={25}
             width={25}
           />
-          <img
-            className="card-poster"
-            src={poster}
-            alt="Card-Image"
-            height={330}
-            width={230}
-          />
-
           <p className="card-movie-title">{movie.title}</p>
           <div className="movie-ratings movie-ratings-small">
             {[...Array(convertToStarsRating(movie.vote_average))].map(

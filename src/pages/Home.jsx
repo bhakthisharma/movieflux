@@ -5,6 +5,7 @@ import Tools from "../components/Tools";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 const Home = ({ setSearchMode, searchMode }) => {
   const navigate = useNavigate();
@@ -90,16 +91,17 @@ const Home = ({ setSearchMode, searchMode }) => {
       const landingMovie =
         popularMovies[getRandomInteger(popularMovies.length)];
 
-        const apiUrl = `https://api.themoviedb.org/3/movie/${landingMovie.id}?api_key=${TMDB_API_KEY}&language=en-US`;
+      const apiUrl = `https://api.themoviedb.org/3/movie/${landingMovie.id}?api_key=${TMDB_API_KEY}&language=en-US`;
 
-        // Make an Axios GET request to fetch movie details
-        axios.get(apiUrl)
-          .then((response) => {
-            setLandingMovie(response.data);
-          })
-          .catch((error) => {
-            console.error('Error fetching movie data:', error);
-          });
+      // Make an Axios GET request to fetch movie details
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          setLandingMovie(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching movie data:", error);
+        });
     }
   }, [popularMovies]);
 
@@ -118,94 +120,102 @@ const Home = ({ setSearchMode, searchMode }) => {
       upcomingMovies &&
       topRatedMovies &&
       landingMovie ? (
-        <div className="container">
-          <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
-          <div className="main-section">
-            <Landing movie={landingMovie}></Landing>
-            <div className="movie-section">
-              <div className="playing-movies">
-                <div className="status-explore">
-                  <p className="movie-status">Now playing movies</p>
-                  <p
-                    className="movie-explorer"
-                    onClick={() =>
-                      navigate("/nowplaying", {
-                        state: {
-                          endpoint: "/now_playing",
-                          title: "Now Playing Movies",
-                        },
-                      })
-                    }
-                  >
-                    Explore all
-                  </p>
-                </div>
+        <>
+          <div className="container">
+            <Tools
+              setSearchMode={setSearchMode}
+              searchMode={searchMode}
+            ></Tools>
+            <div className="main-section">
+              <Landing movie={landingMovie}></Landing>
+              <div className="movie-section">
+                <div className="playing-movies">
+                  <div className="status-explore">
+                    <p className="movie-status">Now playing movies</p>
+                    <p
+                      className="movie-explorer"
+                      onClick={() =>
+                        navigate("/nowplaying", {
+                          state: {
+                            endpoint: "/now_playing",
+                            title: "Now Playing Movies",
+                          },
+                        })
+                      }
+                    >
+                      Explore all
+                    </p>
+                  </div>
 
-                <CarouselLayout movies={nowPlayingMovies}></CarouselLayout>
-              </div>
-              <div className="playing-movies">
-                <div className="status-explore">
-                  <p className="movie-status">Popular movies</p>
-                  <p
-                    className="movie-explorer"
-                    onClick={() =>
-                      navigate("/popular", {
-                        state: {
-                          endpoint: "/popular",
-                          title: "Popular Movies",
-                        },
-                      })
-                    }
-                  >
-                    Explore all
-                  </p>
+                  <CarouselLayout movies={nowPlayingMovies}></CarouselLayout>
                 </div>
+                <div className="playing-movies">
+                  <div className="status-explore">
+                    <p className="movie-status">Popular movies</p>
+                    <p
+                      className="movie-explorer"
+                      onClick={() =>
+                        navigate("/popular", {
+                          state: {
+                            endpoint: "/popular",
+                            title: "Popular Movies",
+                          },
+                        })
+                      }
+                    >
+                      Explore all
+                    </p>
+                  </div>
 
-                <CarouselLayout movies={popularMovies}></CarouselLayout>
-              </div>
-              <div className="playing-movies">
-                <div className="status-explore">
-                  <p className="movie-status">Upcoming movies</p>
-                  <p
-                    className="movie-explorer"
-                    onClick={() =>
-                      navigate("/upcoming", {
-                        state: {
-                          endpoint: "/upcoming",
-                          title: "Upcoming Movies",
-                        },
-                      })
-                    }
-                  >
-                    Explore all
-                  </p>
+                  <CarouselLayout movies={popularMovies}></CarouselLayout>
                 </div>
+                <div className="playing-movies">
+                  <div className="status-explore">
+                    <p className="movie-status">Upcoming movies</p>
+                    <p
+                      className="movie-explorer"
+                      onClick={() =>
+                        navigate("/upcoming", {
+                          state: {
+                            endpoint: "/upcoming",
+                            title: "Upcoming Movies",
+                          },
+                        })
+                      }
+                    >
+                      Explore all
+                    </p>
+                  </div>
 
-                <CarouselLayout movies={upcomingMovies}></CarouselLayout>
-              </div>
-              <div className="playing-movies">
-                <div className="status-explore">
-                  <p className="movie-status">Top rated movies</p>
-                  <p
-                    className="movie-explorer"
-                    onClick={() =>
-                      navigate("/toprated", {
-                        state: {
-                          endpoint: "/top_rated",
-                          title: "Top Rated Movies",
-                        },
-                      })
-                    }
-                  >
-                    Explore all
-                  </p>
+                  <CarouselLayout movies={upcomingMovies}></CarouselLayout>
                 </div>
+                <div className="playing-movies">
+                  <div className="status-explore">
+                    <p className="movie-status">Top rated movies</p>
+                    <p
+                      className="movie-explorer"
+                      onClick={() =>
+                        navigate("/toprated", {
+                          state: {
+                            endpoint: "/top_rated",
+                            title: "Top Rated Movies",
+                          },
+                        })
+                      }
+                    >
+                      Explore all
+                    </p>
+                  </div>
 
-                <CarouselLayout movies={topRatedMovies}></CarouselLayout>
+                  <CarouselLayout movies={topRatedMovies}></CarouselLayout>
+                </div>
+          <Footer className="footer-padding-lg"></Footer>
+
               </div>
             </div>
           </div>
-        </div>
+
+        </>
       ) : null}
     </>
   );

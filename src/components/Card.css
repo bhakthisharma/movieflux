@@ -36,7 +36,7 @@
 
 .card-favourite {
   position: absolute;
-  top: 23px;
+  /* top: 23px; */
   right: 25px;
   z-index:4000;
   

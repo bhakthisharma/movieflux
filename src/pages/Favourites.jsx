@@ -5,6 +5,7 @@ import "./FilteredMovies.css";
 import { useEffect, useState } from "react";
 import Grid from "../components/Grid";
 import axios from "axios";
+import Footer from "./Footer";
 
 const Favourites = ({ searchMode, setSearchMode }) => {
   const { query } = useParams();
@@ -22,21 +23,32 @@ const Favourites = ({ searchMode, setSearchMode }) => {
   return (
     <>
       {movies && (
+    <>
+
         <div className="container">
           <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">Favourites</p>
-              <p className="filtered-movies-items">{movies.length} items</p>
+              <p className="filtered-movies-items">{movies.length} {movies.length>1?`items`:"item"}</p>
             </div>
 
             <div className="grid">
               <Grid movies={movies}></Grid>
             </div>
+            <Footer></Footer>
+
           </div>
+
+
         </div>
+
+        </>
+
       )}
+
     </>
+    
   );
 };
 

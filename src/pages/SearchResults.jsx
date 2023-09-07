@@ -5,6 +5,8 @@ import "./FilteredMovies.css";
 import { useEffect, useState } from "react";
 import Grid from "../components/Grid";
 import axios from "axios";
+import Footer from "./Footer";
+
 
 const SearchResults = ({ searchMode, setSearchMode }) => {
   const { query } = useParams();
@@ -38,7 +40,7 @@ const SearchResults = ({ searchMode, setSearchMode }) => {
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">Search Results</p>
-              <p className="filtered-movies-items">{movies.length} items</p>
+              <p className="filtered-movies-items">{movies.length} {movies.length>1?`items`:"item"}</p>
             </div>
 
             <div className="grid">

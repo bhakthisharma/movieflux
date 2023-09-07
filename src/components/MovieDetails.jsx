@@ -1,6 +1,8 @@
 import React from "react";
 import "./MovieDetails.css";
 import SeethaRamam from "../images/bg-image.jpg";
+import Footer from "./Footer";
+
 
 const MovieDetails = ({ movieDetails }) => {
   const genreNames = movieDetails.genres.map((genre) => genre.name);
@@ -72,7 +74,10 @@ const MovieDetails = ({ movieDetails }) => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
+
     </section>
+    
   );
 };
 
