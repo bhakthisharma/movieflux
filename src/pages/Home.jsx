@@ -209,12 +209,10 @@ const Home = ({ setSearchMode, searchMode }) => {
 
                   <CarouselLayout movies={topRatedMovies}></CarouselLayout>
                 </div>
-          <Footer className="footer-padding-lg"></Footer>
-
+                <Footer className="footer-padding-lg"></Footer>
               </div>
             </div>
           </div>
-
         </>
       ) : null}
     </>

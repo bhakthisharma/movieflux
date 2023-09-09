@@ -59,3 +59,8 @@
 .moviedetails-description-moviedetails-values{
   padding-left: 60px;
 }
+.play-icon{
+  height:40px;
+  width: 40px;
+  position: absolute;
+}

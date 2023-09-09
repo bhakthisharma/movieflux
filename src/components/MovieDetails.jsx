@@ -2,6 +2,8 @@ import React from "react";
 import "./MovieDetails.css";
 import SeethaRamam from "../images/bg-image.jpg";
 import { useState } from "react";
+import PhotosGrid from "./PhotosGrid";
+import VideosGrid from "./VideosGrid";
 
 const MovieDetails = ({ movieDetails }) => {
   const [currentTab, setCurrentTab] = useState("overview");
@@ -91,9 +93,8 @@ const MovieDetails = ({ movieDetails }) => {
           </div>
         </div>
       )}
-      {currentTab === "videos" && <h1>Videos</h1>}
-      {currentTab === "photos" && <h1>Photos</h1>}
-
+      {currentTab === "videos" && <VideosGrid id={movieDetails.id}></VideosGrid> }
+      {currentTab === "photos" && <PhotosGrid id={movieDetails.id}></PhotosGrid>}
     </section>
   );
 };

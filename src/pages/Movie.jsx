@@ -6,7 +6,7 @@ import Tools from "../components/Tools";
 import MovieDetails from "../components/MovieDetails";
 import Footer from "./Footer";
 import { CarouselLayout } from "../components/Carousel";
-
+import { CastCarousel } from "../components/CastCarousel";
 
 const Movie = ({ searchMode, setSearchMode }) => {
   const [movie, setMovie] = useState(null);
@@ -44,6 +44,7 @@ const Movie = ({ searchMode, setSearchMode }) => {
         axios.spread((movieResponse, castResponse) => {
           setMovie(movieResponse.data);
           setCast(castResponse.data.cast);
+          
           console.log(movieResponse.data);
           console.log(castResponse.data.cast);
         })
@@ -63,22 +64,29 @@ const Movie = ({ searchMode, setSearchMode }) => {
             <MovieDetails movieDetails={movie}></MovieDetails>
 
             <div className="playing-movies">
-                  <div className="status-explore">
-                    <p style={{color:"white"}} className="movie-status">Similar  movies</p>
-                    
-                  </div>
-                  <CarouselLayout movies={similarMovies}></CarouselLayout>
+              <div className="status-explore">
+                <p style={{ color: "white" }} className="movie-status">
+                  Cast
+                </p>
+              </div>
+              <CastCarousel movies={cast}></CastCarousel>
+            </div>
 
-                </div>
+            <div className="playing-movies">
+              <div className="status-explore">
+                <p style={{ color: "white" }} className="movie-status">
+                  Similar movies
+                </p>
+              </div>
+              <CarouselLayout movies={similarMovies}></CarouselLayout>
+            </div>
 
-                <div className="status-explore">
-                    <p style={{color:"white"}} className="movie-status">Recommended movies</p>
-                    
-                  </div>
-                  <CarouselLayout movies={recommendedMovies}></CarouselLayout>
-
-
-
+            <div className="status-explore">
+              <p style={{ color: "white" }} className="movie-status">
+                Recommended movies
+              </p>
+            </div>
+            <CarouselLayout movies={recommendedMovies}></CarouselLayout>
             <Footer></Footer>
           </div>
         </div>

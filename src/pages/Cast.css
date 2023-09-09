@@ -1,0 +1,22 @@
+.cast-details {
+  width: 15%;
+  display: flex;
+  row-gap: 12px;
+  flex-direction: column;
+}
+
+.moviedetails-description-moviedetails-values {
+  width: 70%;
+}
+.playing-movies {
+  color: white;
+}
+.card-movie-character,
+.card-movie-name {
+  margin-top: 13px;
+}
+.card-movie-character {
+  color: rgb(176, 168, 168);
+  margin-top: 5px;
+}
+

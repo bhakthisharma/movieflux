@@ -9,7 +9,7 @@ const Grid = ({ movies }) => {
     <Container>
       <Row justify="center" gutterWidth={60}>
         {movies.map((movie, index) => (
-          <Col align="start" sm={5} lg={2.8} md={3} xl={3} key={index}>
+          <Col align="start" sm={5} lg={5} md={5} xl={3} key={index}>
             <Card movie={movie} />
           </Col>
         ))}

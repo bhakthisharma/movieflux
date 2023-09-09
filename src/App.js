@@ -7,10 +7,14 @@ import { useState } from "react";
 import Movie from "./pages/Movie"
 import SearchResults from "./pages/SearchResults";
 import Favourites from "./pages/Favourites";
+import Cast from "./pages/Cast";
+
 
 function App() {
   const [searchMode, setSearchMode] = useState(false);
   return (
+
+
     <>
         <Router>
 
@@ -21,6 +25,12 @@ function App() {
               path="/"
               element={
                 <Home setSearchMode={setSearchMode} searchMode={searchMode} />
+              }
+            ></Route>
+            <Route
+              path="/person/:id"
+              element={
+                <Cast setSearchMode={setSearchMode} searchMode={searchMode} />
               }
             ></Route>
             <Route
