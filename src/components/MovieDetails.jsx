@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MovieDetails.css";
-import SeethaRamam from "../images/bg-image.jpg";
-import { useState } from "react";
 import PhotosGrid from "./PhotosGrid";
 import VideosGrid from "./VideosGrid";
+import { CastCarousel } from "./CastCarousel";
 
-const MovieDetails = ({ movieDetails }) => {
+const MovieDetails = ({ movieDetails,cast }) => {
   const [currentTab, setCurrentTab] = useState("overview");
   const genreNames = movieDetails.genres.map((genre) => genre.name);
   const concatenatedGenres = genreNames.join(", ");
@@ -36,18 +35,27 @@ const MovieDetails = ({ movieDetails }) => {
     <section className="moviedetails">
       <div className="moviedetails-title">
         <h2
+          style={{
+            textDecoration: currentTab === "overview" ? "underline" : "none",
+          }}
           onClick={() => setCurrentTab("overview")}
           className="moviedetails-tab"
         >
           OVERVIEW
         </h2>
         <h2
+         style={{
+          textDecoration: currentTab === "videos" ? "underline" : "none",
+        }}
           onClick={() => setCurrentTab("videos")}
           className="moviedetails-tab"
         >
           VIDEOS
         </h2>
         <h2
+         style={{
+          textDecoration: currentTab === "photos" ? "underline" : "none",
+        }}
           onClick={() => setCurrentTab("photos")}
           className="moviedetails-tab"
         >
@@ -93,8 +101,25 @@ const MovieDetails = ({ movieDetails }) => {
           </div>
         </div>
       )}
-      {currentTab === "videos" && <VideosGrid id={movieDetails.id}></VideosGrid> }
-      {currentTab === "photos" && <PhotosGrid id={movieDetails.id}></PhotosGrid>}
+      {currentTab === "overview" && (
+     <>
+       <div className="playing-movies">
+       <div className="status-explore">
+         <p style={{ color: "white" }} className="movie-status">
+           Cast
+         </p>
+       </div>
+       <CastCarousel movies={cast}/>
+       </div>
+       </>
+      )}
+           
+      {currentTab === "videos" && (
+        <VideosGrid id={movieDetails.id}></VideosGrid>
+      )}
+      {currentTab === "photos" && (
+        <PhotosGrid id={movieDetails.id}></PhotosGrid>
+      )}
     </section>
   );
 };

@@ -1,31 +1,35 @@
-import React, { useState, useEffect } from "react";
-import "./Card.css"; // Create this CSS file for styling
+import React, { useState } from "react";
+import "./Card.css";
 
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import playIcon from "../images/play.svg";
+import PlayIcon from "./icons/PlayIcon";
 
 const Video = ({ video, setVideoID, setIsPlaying }) => {
-  const navigate = useNavigate();
+  const [showPlayIcon, setShowPlayIcon] = useState(false);
 
   return (
     <>
       {
         <div
-          className="card"
+          onMouseOut={() => setShowPlayIcon(false)}
+          onMouseOver={() => setShowPlayIcon(true)}
+          className="card photo-card"
+          style={{
+            backgroundImage: `url(https://img.youtube.com/vi/${video.key}/mqdefault.jpg)`,
+          }}
           onClick={() => {
             setIsPlaying(true);
             setVideoID(video.key);
           }}
         >
-          <img className="play-icon" src={playIcon} alt="playicon" />
-          <img
+          {showPlayIcon && <PlayIcon></PlayIcon>}
+          {/* <img
             className="card-poster"
             src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
             alt="Card-Image"
             height={320}
             width={500}
-          />
+          /> */}
         </div>
       }
     </>

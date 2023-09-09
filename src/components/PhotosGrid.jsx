@@ -33,7 +33,7 @@ const PhotosGrid = ({ id }) => {
         <Container>
           <Row justify="center" gutterWidth={60}>
             {photos.slice(0,40).map((photo, index) => (
-              <Col align="start" sm={5} lg={2.8} md={3} xl={3} key={index}>
+              <Col align="start" sm={5} lg={4} md={4} xl={4} key={index}>
                 <Photo photo={photo} />
               </Col>
             ))}

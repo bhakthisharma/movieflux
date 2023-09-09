@@ -4,7 +4,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: fit-content;
   height: fit-content;
-  width: 800px;
   gap: 20px;
   position: relative;
   display: inline-block;
@@ -12,12 +11,16 @@
   margin-left: 5px;
   color: white;
 }
-
+.card-bg-img:hover{
+  overflow: hidden;
+  transition: all 200ms ease-in;
+  transform: scale(1.08);
+}
 .card-poster {
   transition: transform 0.3s ease;
 }
 .card-poster:hover {
-  transform: scale(1.05);
+    background-size: 120%;
 }
 
 .card-movie-title {
@@ -36,12 +39,11 @@
 
 .card-favourite {
   position: absolute;
-  /* top: 23px; */
+  top: 25px;
   right: 25px;
-  z-index:4000;
-  
-}
 
+  z-index: 4000;
+}
 
 .movie-ratings-small {
   margin-top: 6px;

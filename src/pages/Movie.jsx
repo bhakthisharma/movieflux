@@ -61,16 +61,9 @@ const Movie = ({ searchMode, setSearchMode }) => {
           <Tools setSearchMode={setSearchMode} searchMode={searchMode}></Tools>
           <div className="movie-container">
             <Landing movie={movie}></Landing>
-            <MovieDetails movieDetails={movie}></MovieDetails>
+            <MovieDetails movieDetails={movie} cast={cast}></MovieDetails>
 
-            <div className="playing-movies">
-              <div className="status-explore">
-                <p style={{ color: "white" }} className="movie-status">
-                  Cast
-                </p>
-              </div>
-              <CastCarousel movies={cast}></CastCarousel>
-            </div>
+      
 
             <div className="playing-movies">
               <div className="status-explore">
