@@ -30,7 +30,7 @@ const Card = ({ movie }) => {
 
         <img
           onClick={(e) => {
-            e.stopPropagation()
+            e.stopPropagation();
             const movies = JSON.parse(localStorage.getItem("favourites")) || [];
             movies.push(movie);
             localStorage.setItem("favourites", JSON.stringify(movies));

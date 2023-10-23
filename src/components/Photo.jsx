@@ -13,7 +13,6 @@ const Photo = ({ photo }) => {
             large={`https://image.tmdb.org/t/p/original${photo.file_path}`}
             alt="Image"
           />
-      
         </div>
       }
     </>

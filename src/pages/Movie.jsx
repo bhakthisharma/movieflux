@@ -44,7 +44,7 @@ const Movie = ({ searchMode, setSearchMode }) => {
         axios.spread((movieResponse, castResponse) => {
           setMovie(movieResponse.data);
           setCast(castResponse.data.cast);
-          
+
           console.log(movieResponse.data);
           console.log(castResponse.data.cast);
         })
@@ -62,8 +62,6 @@ const Movie = ({ searchMode, setSearchMode }) => {
           <div className="movie-container">
             <Landing movie={movie}></Landing>
             <MovieDetails movieDetails={movie} cast={cast}></MovieDetails>
-
-      
 
             <div className="playing-movies">
               <div className="status-explore">

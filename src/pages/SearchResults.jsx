@@ -7,7 +7,6 @@ import Grid from "../components/Grid";
 import axios from "axios";
 import Footer from "./Footer";
 
-
 const SearchResults = ({ searchMode, setSearchMode }) => {
   const { query } = useParams();
   const TMDB_API_KEY = "3bf86b4334ec0be302abbf616d7b5e18";
@@ -40,7 +39,9 @@ const SearchResults = ({ searchMode, setSearchMode }) => {
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">Search Results</p>
-              <p className="filtered-movies-items">{movies.length} {movies.length>1?`items`:"item"}</p>
+              <p className="filtered-movies-items">
+                {movies.length} {movies.length > 1 ? `items` : "item"}
+              </p>
             </div>
 
             <div className="grid">

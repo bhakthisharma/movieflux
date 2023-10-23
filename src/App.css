@@ -7,7 +7,7 @@
   background-color: #141414;
 }
 
-.tools-icon{
+.tools-icon {
   transition: all 600ms ease-in !important;
 }
 
@@ -73,7 +73,8 @@ body {
   background-position: center;
   background-size: cover;
 }
-.main-section, .movie-container {
+.main-section,
+.movie-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -152,8 +153,8 @@ body {
   font-size: 20px;
 }
 .rec.rec-dot {
-  visibility:hidden !important;
-  }
-  .rec.rec-dot_active {
-  visibility:hidden !important;
-  }
+  visibility: hidden !important;
+}
+.rec.rec-dot_active {
+  visibility: hidden !important;
+}

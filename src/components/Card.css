@@ -11,7 +11,7 @@
   margin-left: 5px;
   color: white;
 }
-.card-bg-img:hover{
+.card-bg-img:hover {
   overflow: hidden;
   transition: all 200ms ease-in;
   transform: scale(1.08);
@@ -20,7 +20,7 @@
   transition: transform 0.3s ease;
 }
 .card-poster:hover {
-    background-size: 120%;
+  background-size: 120%;
 }
 
 .card-movie-title {

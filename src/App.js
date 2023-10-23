@@ -4,22 +4,18 @@ import "./App.css";
 import FilteredMovies from "./pages/FilteredMovies";
 import Search from "./components/Search";
 import { useState } from "react";
-import Movie from "./pages/Movie"
+import Movie from "./pages/Movie";
 import SearchResults from "./pages/SearchResults";
 import Favourites from "./pages/Favourites";
 import Cast from "./pages/Cast";
 
-
 function App() {
   const [searchMode, setSearchMode] = useState(false);
   return (
-
-
     <>
-        <Router>
-
-    <div className="App">
-      {searchMode && <Search></Search>}
+      <Router>
+        <div className="App">
+          {searchMode && <Search></Search>}
           <Routes>
             <Route
               path="/"
@@ -42,10 +38,13 @@ function App() {
                 />
               }
             ></Route>
-             <Route
+            <Route
               path="/favourites"
               element={
-                <Favourites setSearchMode={setSearchMode} searchMode={searchMode} />
+                <Favourites
+                  setSearchMode={setSearchMode}
+                  searchMode={searchMode}
+                />
               }
             ></Route>
             <Route
@@ -54,7 +53,7 @@ function App() {
                 <Movie setSearchMode={setSearchMode} searchMode={searchMode} />
               }
             ></Route>
-             <Route
+            <Route
               path="/search/:query"
               element={
                 <SearchResults
@@ -64,10 +63,9 @@ function App() {
               }
             ></Route>
           </Routes>
-    </div>
-    </Router>
+        </div>
+      </Router>
     </>
-
   );
 }
 

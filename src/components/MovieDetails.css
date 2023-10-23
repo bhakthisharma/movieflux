@@ -36,11 +36,9 @@
 }
 .photo-card:hover {
   filter: brightness(1.05);
-background-size: 120%;
-filter: brightness(70%)
-
+  background-size: 120%;
+  filter: brightness(70%);
 }
-
 
 .moviedetails-tab:hover {
   text-decoration: underline !important;

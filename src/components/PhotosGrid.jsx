@@ -25,22 +25,20 @@ const PhotosGrid = ({ id }) => {
 
   return (
     <>
-
       {photos && (
-      <>
-      <p style={{marginLeft:50}} > {photos.slice(0,40).length} Items</p>
+        <>
+          <p style={{ marginLeft: 50 }}> {photos.slice(0, 40).length} Items</p>
 
-        <Container>
-          <Row justify="center" gutterWidth={60}>
-            {photos.slice(0,40).map((photo, index) => (
-              <Col align="start" sm={5} lg={4} md={4} xl={4} key={index}>
-                <Photo photo={photo} />
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </>
-
+          <Container>
+            <Row justify="center" gutterWidth={60}>
+              {photos.slice(0, 40).map((photo, index) => (
+                <Col align="start" sm={5} lg={4} md={4} xl={4} key={index}>
+                  <Photo photo={photo} />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </>
       )}
     </>
   );

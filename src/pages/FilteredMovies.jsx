@@ -43,7 +43,9 @@ const FilteredMovies = ({ searchMode, setSearchMode }) => {
           <div className="main-section-filteredmovies">
             <div className="filtered-movies-title-items">
               <p className="filtered-movies-title">{location?.state?.title}</p>
-              <p className="filtered-movies-items">{movies.length} {movies.length>1?`items`:"item"} </p>
+              <p className="filtered-movies-items">
+                {movies.length} {movies.length > 1 ? `items` : "item"}{" "}
+              </p>
             </div>
 
             <div className="grid">
